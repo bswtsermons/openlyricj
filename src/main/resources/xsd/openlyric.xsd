@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://openlyrics.info/namespace/2009/song" targetNamespace="http://openlyrics.info/namespace/2009/song">
+    <element name="song">
+    	<complexType>
+    		<sequence>
+    			<element name="properties" type="tns:PropertiesType" />
+    			<element name="lyrics" type="tns:LyricsType" />
+    		</sequence>
+    		<attribute name="version" type="string"></attribute>
+    		<attribute name="createdIn" type="string"></attribute>
+    		<attribute name="modifiedIn" type="string"></attribute>
+    		<attribute name="modifiedDate" type="string"></attribute>
+    	</complexType>
+    </element>
+
+    <complexType name="PropertiesType">
+    	<sequence>
+    		<element name="titles" type="tns:TitlesType" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    <complexType name="TitlesType">
+    	<sequence>
+    		<element type="string" name="title"></element>
+    	</sequence>
+    </complexType>
+    <complexType name="LyricsType">
+   		<sequence>
+			<element name="verse" maxOccurs="unbounded"
+				minOccurs="1" type="tns:VerseType">
+			</element>
+		</sequence>
+    </complexType>
+    <complexType name="VerseType">
+    	<sequence>
+			<element name="lines" type="tns:LinesType" maxOccurs="1" minOccurs="1">
+			</element>
+		</sequence>
+		<attribute name="name" type="string">
+		</attribute>
+    </complexType>
+    
+    <complexType name="LinesType" mixed="true">
+    	<sequence>
+    		<element name="br">
+    			<complexType>
+    				<sequence></sequence>
+    			</complexType>
+    		</element>
+    	</sequence>
+    </complexType>
+</schema>
