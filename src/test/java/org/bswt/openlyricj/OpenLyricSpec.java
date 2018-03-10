@@ -30,9 +30,9 @@ public class OpenLyricSpec
 	public void marshall() throws JAXBException
 	{
 		TitlesType titlesType = new TitlesType();
-		titlesType.setTitle("Amazing Gracie");
+		titlesType.getTitle().add("Amazing Gracie");
 		PropertiesType propertiesType = new PropertiesType();
-		propertiesType.getTitles().add(titlesType);
+		propertiesType.setTitles(titlesType);
 		
 		LinesType linesType = new LinesType();
 		linesType.getContent().add("Amazing grace");
@@ -54,7 +54,7 @@ public class OpenLyricSpec
 		song.setCreatedIn("foo");
 		song.setVersion("0.8");
 		song.setModifiedIn("boofoo");
-		song.setModifiedDate("2018-02-26T12:17:59");
+		song.setModifiedDate(null);
 		song.setProperties(propertiesType);
 		song.setLyrics(lyricsType);
 		
@@ -77,7 +77,7 @@ public class OpenLyricSpec
 			
 			assertNotNull("song has properties", song.getProperties());
 			assertNotNull("property has titles", song.getProperties().getTitles());
-			assertEquals("song title set", "Amazing Grace", song.getProperties().getTitles().get(0).getTitle());
+			assertEquals("song title set", "Amazing Grace", song.getProperties().getTitles().getTitle().get(0));
 			assertNotNull("song has lyrics", song.getLyrics());
 			assertEquals("song has one verse", 1, song.getLyrics().getVerse().size());
 			assertEquals("verse name set", "v1", song.getLyrics().getVerse().get(0).getName());
