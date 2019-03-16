@@ -15,13 +15,7 @@ You'll need a copy of Java 8 installed on your host.
 
 ## Deployment
 
-As this is a Spring Boot app, just assemble the jar file and run it with Java.
-
-```
-./gradlew assemble
-cd build/libs
-java -jar openlp-convert.jar
-```
+You can use these classes or deploy them as a jar.
 
 ## Built With
 [Gradle](https://gradle.org/) - Dependency management
