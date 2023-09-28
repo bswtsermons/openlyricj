@@ -19,6 +19,7 @@ buildscript {
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'com.github.jacobono.jaxb'
+apply plugin: 'maven-publish'
 
 group = 'org.holdren'
 version = '0.0.1-SNAPSHOT'
